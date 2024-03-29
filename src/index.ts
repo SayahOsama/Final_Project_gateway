@@ -50,6 +50,10 @@ app.post('/api/event', (req, res) => {
     const url = req.originalUrl;
     makeReq(req, res, "POST",`https://final-project-events.onrender.com${url}`);
 });
+app.post('/api/event/date', (req, res) => {
+    const url = req.originalUrl;
+    makeReq(req, res, "POST",`https://final-project-events.onrender.com${url}`);
+});
 
 //get
 app.get(USERNAME_PATH, usernameRoute);
@@ -66,10 +70,6 @@ app.get('/api/event/tickets/price/:eventId', (req, res) => {
     makeReq(req, res, "GET",`https://final-project-events.onrender.com${url}`);
 });
 app.get('/api/event/tickets/amount/:eventId', (req, res) => {
-    const url = req.originalUrl;
-    makeReq(req, res, "GET",`https://final-project-events.onrender.com${url}`);
-});
-app.get('/api/event/date', (req, res) => {
     const url = req.originalUrl;
     makeReq(req, res, "GET",`https://final-project-events.onrender.com${url}`);
 });
