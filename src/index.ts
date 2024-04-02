@@ -61,6 +61,7 @@ app.post('/_functions/pay', (req, res) => {
 app.post('/_functions/refund', (req, res) => {
     const url = req.originalUrl;
     makeReq(req, res, "POST",`https://www.cs-wsp.net${url}`);
+});
 
 //get
 app.get(USERNAME_PATH, usernameRoute);
