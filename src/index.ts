@@ -54,6 +54,13 @@ app.post('/api/event/date', (req, res) => {
     const url = req.originalUrl;
     makeReq(req, res, "POST",`https://final-project-events.onrender.com${url}`);
 });
+app.post('/_functions/pay', (req, res) => {
+    const url = req.originalUrl;
+    makeReq(req, res, "POST",`https://www.cs-wsp.net${url}`);
+});
+app.post('/_functions/refund', (req, res) => {
+    const url = req.originalUrl;
+    makeReq(req, res, "POST",`https://www.cs-wsp.net${url}`);
 
 //get
 app.get(USERNAME_PATH, usernameRoute);
