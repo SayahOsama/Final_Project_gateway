@@ -101,6 +101,10 @@ app.get('/api/event', (req, res) => {
     const url = req.originalUrl;
     makeReq(req, res, "GET",`https://final-project-events.onrender.com${url}`);
 });
+app.get('/api/user/nextEvent/:Id', (req, res) => {
+    const url = req.originalUrl;
+    makeReq(req, res, "GET",`https://final-project-users.onrender.com${url}`);
+});
 
 //delete
 app.delete('/api/user/orders/:Id', (req, res) => {
