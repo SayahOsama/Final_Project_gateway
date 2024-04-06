@@ -128,7 +128,6 @@ export async function usernameRoute(req: Request, res: Response) {
 export async function updateUserPrivileges(req: Request, res: Response, url: string) {
   const username = protectedRout(req,res);
   if(username == "ERROR"){
-    res.status(401).send('Invalid token');
     return;
   }
 
@@ -146,7 +145,6 @@ export async function updateUserPrivileges(req: Request, res: Response, url: str
 export async function makeReq(req: Request, res: Response, method: string, url: string) {
   const username = protectedRout(req,res);
   if(username == "ERROR"){
-    res.status(401).send('Invalid token');
     return;
   }
 
