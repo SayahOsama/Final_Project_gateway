@@ -62,14 +62,14 @@ export async function loginRoute(req: Request, res: Response) {
   const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, { expiresIn: '2d' });
 
   const secure = process.env.NODE_ENV === 'production';
-  // res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'strict', maxAge: 2 * 24 * 60 * 60 * 1000 }); // Set the token cookie
+  //res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'strict', maxAge: 2 * 24 * 60 * 60 * 1000 }); // Set the token cookie
   res.cookie('token', token, { httpOnly: true, maxAge: 2 * 24 * 60 * 60 * 1000 }); // Set the token cookie
   res.status(200).send('Logged in');
 }
 
 export async function logoutRoute(req: Request, res: Response) {
   const secure = process.env.NODE_ENV === 'production';
-  // res.clearCookie('token', {httpOnly: true, secure: secure, sameSite: 'strict', maxAge: 2 * 24 * 60 * 60 * 1000 }); // Clear the token cookie
+  //res.clearCookie('token', {httpOnly: true, secure: secure, sameSite: 'strict', maxAge: 2 * 24 * 60 * 60 * 1000 }); // Clear the token cookie
   //res.clearCookie('token', {httpOnly: true, maxAge: 2 * 24 * 60 * 60 * 1000 }); // Clear the token cookie
   res.clearCookie('token');
   res.status(200).send('Logged out');
@@ -125,9 +125,28 @@ export async function usernameRoute(req: Request, res: Response) {
   res.status(200).send({username});
 }
 
+export async function updateUserPrivileges(req: Request, res: Response, url: string) {
+  const username = protectedRout(req,res);
+  if(username == "ERROR"){
+    res.status(401).send('Invalid token');
+    return;
+  }
+
+  const modifiedReqBody = {
+    loggedUserName: username,
+    ...req.body
+  };
+
+  const response = await axios.put(url, modifiedReqBody);
+  res.status(response.status).send(response.data);
+  return;
+
+}
+
 export async function makeReq(req: Request, res: Response, method: string, url: string) {
   const username = protectedRout(req,res);
   if(username == "ERROR"){
+    res.status(401).send('Invalid token');
     return;
   }
 
