@@ -108,7 +108,7 @@ export async function signupRoute(req: Request, res: Response) {
 
 export async function usernameRoute(req: Request, res: Response) {
   // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', 'https://final-project-gateway.onrender.com , https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Origin', 'https://osama-sayah.github.io');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -133,7 +133,7 @@ export async function usernameRoute(req: Request, res: Response) {
 
 export async function updateUserPrivileges(req: Request, res: Response, url: string) {
   // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', 'https://final-project-gateway.onrender.com , https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Origin', 'https://osama-sayah.github.io');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -156,7 +156,7 @@ export async function updateUserPrivileges(req: Request, res: Response, url: str
 
 export async function makeReq(req: Request, res: Response, method: string, url: string) {
   // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', 'https://final-project-gateway.onrender.com , https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Origin', 'https://osama-sayah.github.io');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
