@@ -8,6 +8,10 @@ import User from './models/user.js';
 
 export const protectedRout = (req: Request, res: Response) => {
   // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', 'https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   const token = req.cookies.token;
   if (!token) {
     res.status(401).send('Not logged in');
@@ -30,6 +34,11 @@ export const protectedRout = (req: Request, res: Response) => {
 };
 
 export async function loginRoute(req: Request, res: Response) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', 'https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   const credentials = req.body;
   try {
     await User.validate(credentials);
@@ -69,6 +78,11 @@ export async function loginRoute(req: Request, res: Response) {
 }
 
 export async function logoutRoute(req: Request, res: Response) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', 'https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   const secure = process.env.NODE_ENV === 'production';
   //res.clearCookie('token', {httpOnly: true, secure: secure, sameSite: 'strict', maxAge: 2 * 24 * 60 * 60 * 1000 }); // Clear the token cookie
   //res.clearCookie('token', {httpOnly: true, maxAge: 2 * 24 * 60 * 60 * 1000 }); // Clear the token cookie
@@ -77,6 +91,11 @@ export async function logoutRoute(req: Request, res: Response) {
 }
 
 export async function signupRoute(req: Request, res: Response) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', 'https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   const user = new User(req.body);
   try {
     const error = await user.validate();
