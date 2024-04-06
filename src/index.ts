@@ -30,8 +30,13 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+// app.use(cors({
+//     origin: ['http://localhost:5173','https://osama-sayah.github.io', '*'], // Allow access from any origin
+//     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
+// })); 
+
 app.use(cors({
-    origin: ['http://localhost:5173','https://osama-sayah.github.io', '*'], // Allow access from any origin
+    origin: ['https://osama-sayah.github.io/Final_Project_App'], // Allow access from any origin
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
 }));
 
