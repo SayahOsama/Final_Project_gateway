@@ -7,6 +7,7 @@ import User from './models/user.js';
 
 
 export const protectedRout = (req: Request, res: Response) => {
+  // Set CORS headers
   const token = req.cookies.token;
   if (!token) {
     res.status(401).send('Not logged in');
@@ -106,6 +107,11 @@ export async function signupRoute(req: Request, res: Response) {
 }
 
 export async function usernameRoute(req: Request, res: Response) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', 'https://final-project-gateway.onrender.com , https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   const token = req.cookies.token;
   if (!token) {
     res.status(401).send('Not logged in');
@@ -126,6 +132,11 @@ export async function usernameRoute(req: Request, res: Response) {
 }
 
 export async function updateUserPrivileges(req: Request, res: Response, url: string) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', 'https://final-project-gateway.onrender.com , https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   const username = protectedRout(req,res);
   if(username == "ERROR"){
     res.status(401).send('Invalid token');
@@ -144,6 +155,11 @@ export async function updateUserPrivileges(req: Request, res: Response, url: str
 }
 
 export async function makeReq(req: Request, res: Response, method: string, url: string) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', 'https://final-project-gateway.onrender.com , https://osama-sayah.github.io');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   const username = protectedRout(req,res);
   if(username == "ERROR"){
     res.status(401).send('Invalid token');
