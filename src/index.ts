@@ -10,6 +10,7 @@ import {
     logoutRoute,
     makeReq,
     signupRoute,
+    updateUserPrivileges,
     usernameRoute,
 } from './routes.js';
 
@@ -116,6 +117,10 @@ app.put('/api/event/tickets/:eventId', (req, res) => {
 app.put('/api/event/:eventId', (req, res) => {
     const url = req.originalUrl;
     makeReq(req, res, "PUT",`https://final-project-events.onrender.com${url}`);
+});
+app.put('/api/user/permission', (req, res) => {
+    const url = req.originalUrl;
+    updateUserPrivileges(req,res,`https://final-project-users.onrender.com${url}`);
 });
 
 
