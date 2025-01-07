@@ -36,7 +36,7 @@ app.use(cookieParser());
 // })); 
 
 app.use(cors({
-    origin: ['*','https://SayahOsama.github.io','https://SayahOsama.github.io/Final_Project_App'], // Allow access from any origin
+    origin: ['*','https://github.com/SayahOsama','https://github.com/SayahOsama/Final_Project_App'], // Allow access from any origin
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
 }));
 
